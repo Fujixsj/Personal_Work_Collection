@@ -3,7 +3,7 @@ import tailwind from "@astrojs/tailwind";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://fuji-work-collection.vercel.app",
   vite: {
     resolve: {
       alias: {

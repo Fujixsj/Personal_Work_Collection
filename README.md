@@ -152,7 +152,7 @@ npm run build
 - 默认 OG 图片
 - 顶部导航
 
-上线前请把 `siteUrl` 从 `https://example.com` 改成真实域名。
+当前 `siteUrl` 使用 Vercel 域名：`https://fuji-work-collection.vercel.app`。如果后续绑定自定义域名，需要在这里更新。
 
 ### SEO 和站点地图
 
@@ -162,7 +162,7 @@ npm run build
 - `public/robots.txt`
 - `public/sitemap.xml`
 
-上线前需要把其中的 `https://example.com` 改为真实域名。
+当前使用 Vercel 域名：`https://fuji-work-collection.vercel.app`。如果后续绑定自定义域名，需要同步更新这些文件。
 
 ## 主要目录说明
 

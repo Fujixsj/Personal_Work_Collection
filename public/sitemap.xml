@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://fuji-work-collection.vercel.app/</loc>
   </url>
   <url>
-    <loc>https://example.com/projects/</loc>
+    <loc>https://fuji-work-collection.vercel.app/projects/</loc>
   </url>
   <url>
-    <loc>https://example.com/timeline/</loc>
+    <loc>https://fuji-work-collection.vercel.app/timeline/</loc>
   </url>
   <url>
-    <loc>https://example.com/cv/</loc>
+    <loc>https://fuji-work-collection.vercel.app/cv/</loc>
   </url>
 </urlset>

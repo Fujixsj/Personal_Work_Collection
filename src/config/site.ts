@@ -1,6 +1,6 @@
 export const siteConfig = {
   siteName: "福记の作品集",
-  siteUrl: "https://example.com",
+  siteUrl: "https://fuji-work-collection.vercel.app",
   defaultTitle: "福记想睡觉 fuji_xsj | Student Developer & Investor",
   defaultDescription:
     "福记想睡觉（fuji_xsj）的个人作品集网站，展示个人介绍、代表项目、成长时间线、简历入口和联系方式。",
