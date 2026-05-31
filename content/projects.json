@@ -1,0 +1,53 @@
+[
+  {
+    "title": "个人作品集网站",
+    "slug": "personal-portfolio",
+    "summary": "一个内容驱动、静态优先、方便长期维护的个人品牌入口。",
+    "role": "产品规划 / 前端开发 / 内容架构",
+    "startDate": "2026-05",
+    "endDate": "",
+    "status": "进行中",
+    "techStack": ["Astro", "TypeScript", "Tailwind CSS"],
+    "highlights": ["首页信息架构", "项目展示", "时间线", "SEO 基础"],
+    "metrics": ["P0 版本开发中"],
+    "websiteUrl": "/",
+    "githubUrl": "",
+    "priority": 1,
+    "tags": ["Portfolio", "Static Site"],
+    "featured": true
+  },
+  {
+    "title": "项目经历待补充 A",
+    "slug": "project-placeholder-a",
+    "summary": "用真实项目替换这里，说明它解决的问题、你的贡献和最终结果。",
+    "role": "待补充",
+    "startDate": "2026-01",
+    "endDate": "",
+    "status": "整理中",
+    "techStack": ["待补充"],
+    "highlights": ["问题背景待补充", "个人贡献待补充"],
+    "metrics": ["结果数据待补充"],
+    "websiteUrl": "",
+    "githubUrl": "",
+    "priority": 2,
+    "tags": ["Draft"],
+    "featured": true
+  },
+  {
+    "title": "项目经历待补充 B",
+    "slug": "project-placeholder-b",
+    "summary": "建议优先放能代表当前能力、已上线或有明确成果的项目。",
+    "role": "待补充",
+    "startDate": "2025-10",
+    "endDate": "",
+    "status": "整理中",
+    "techStack": ["待补充"],
+    "highlights": ["目标待补充", "方案待补充"],
+    "metrics": ["影响待补充"],
+    "websiteUrl": "",
+    "githubUrl": "",
+    "priority": 3,
+    "tags": ["Draft"],
+    "featured": true
+  }
+]

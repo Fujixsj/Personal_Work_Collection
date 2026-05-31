@@ -1,0 +1,34 @@
+{
+  "name": "福记想睡觉",
+  "englishName": "fuji_xsj",
+  "title": "Student, Developer & Investor",
+  "tagline": "把想法做成真实、清晰、可维护的产品。",
+  "location": "China",
+  "bio": "我是fuji_xsj，也可以叫我福记，我关注全栈开发、产品体验与 AI 工具赋能，目前正在整理真实项目、学习轨迹和长期作品集。这里会持续更新我做过的东西、解决过的问题和可联系的方式",
+  "email": "2188701069@qq.com",
+  "resumeUrl": "/resume.pdf",
+  "availability": "记录作品、想法和成长轨迹",
+  "socialLinks": [
+    {
+      "label": "Email",
+      "url": "mailto:2188701069@qq.com",
+      "type": "mailto",
+      "visible": true,
+      "order": 1
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/fujixsj",
+      "type": "external",
+      "visible": true,
+      "order": 2
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/旺-徐-34522a409",
+      "type": "external",
+      "visible": true,
+      "order": 3
+    }
+  ]
+}

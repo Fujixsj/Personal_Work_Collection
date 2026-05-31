@@ -1,0 +1,62 @@
+---
+import type { SocialLink } from "@/types/content";
+
+type Props = {
+  links: SocialLink[];
+};
+
+const { links } = Astro.props;
+
+function isExternal(url: string) {
+  return url.startsWith("http");
+}
+
+function getIconType(label: string) {
+  const normalizedLabel = label.toLowerCase();
+
+  if (normalizedLabel.includes("github")) return "github";
+  if (normalizedLabel.includes("linkedin")) return "linkedin";
+  if (normalizedLabel.includes("email") || normalizedLabel.includes("mail")) return "email";
+
+  return "external";
+}
+---
+
+<div class="social-icon-list" aria-label="联系方式">
+  {links.map((link) => (
+    <a
+      class="social-icon-link"
+      href={link.url}
+      target={isExternal(link.url) ? "_blank" : undefined}
+      rel={isExternal(link.url) ? "noopener noreferrer" : undefined}
+      aria-label={link.label}
+      title={link.label}
+      data-icon={getIconType(link.label)}
+    >
+      {getIconType(link.label) === "github" && (
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 2.3a9.8 9.8 0 0 0-3.1 19.1c.5.1.7-.2.7-.5v-1.8c-2.9.6-3.5-1.2-3.5-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 0 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.3-.3-4.7-1.2-4.7-5.1 0-1.1.4-2.1 1.1-2.8-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1a10 10 0 0 1 5.3 0c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.7 1.1 2.8 0 4-2.4 4.8-4.7 5.1.4.3.8 1 .8 2.1V21c0 .3.2.6.8.5A9.8 9.8 0 0 0 12 2.3Z"></path>
+        </svg>
+      )}
+      {getIconType(link.label) === "linkedin" && (
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M5.2 8.7h3.2v10.1H5.2V8.7Zm1.6-4.9a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6Zm3.7 4.9h3.1v1.4h.1c.4-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.2 3.9 5v5.4h-3.2V14c0-1.1 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.9h-3.2V8.7Z"></path>
+        </svg>
+      )}
+      {getIconType(link.label) === "email" && (
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M4.4 6.3h15.2c.8 0 1.4.6 1.4 1.4v8.6c0 .8-.6 1.4-1.4 1.4H4.4c-.8 0-1.4-.6-1.4-1.4V7.7c0-.8.6-1.4 1.4-1.4Zm.3 2 7.3 5.1 7.3-5.1"></path>
+          <path d="m4.1 16.3 5.1-4"></path>
+          <path d="m14.8 12.3 5.1 4"></path>
+        </svg>
+      )}
+      {getIconType(link.label) === "external" && (
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M8 8h8v8"></path>
+          <path d="m7 17 9-9"></path>
+        </svg>
+      )}
+      <span class="sr-only">{link.label}</span>
+    </a>
+  ))}
+</div>

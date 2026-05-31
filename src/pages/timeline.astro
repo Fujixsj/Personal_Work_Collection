@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import TimelineList from "@/components/TimelineList.astro";
+import { getTimelineEntries } from "@/lib/content";
+
+const entries = getTimelineEntries();
+---
+
+<BaseLayout title="Timeline" description="按时间倒序展示个人项目、学习、工作和成长轨迹。" pathname="/timeline">
+  <Header />
+  <main class="page-intro">
+    <div class="container max-w-4xl">
+      <p class="eyebrow">Timeline</p>
+      <h1 class="mt-3 text-4xl font-semibold">时间线</h1>
+      <p class="mt-4 text-[var(--muted)]">最新经历优先展示。这里适合记录工作、项目、学习、开源、获奖和文章节点。</p>
+      <div class="mt-10">
+        <TimelineList entries={entries} />
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

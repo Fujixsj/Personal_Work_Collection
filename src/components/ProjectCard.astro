@@ -1,0 +1,50 @@
+---
+import type { Project } from "@/types/content";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class="surface grid gap-5 rounded-lg p-5 transition hover:-translate-y-1 hover:border-[var(--accent)]">
+  <div class="h-24 rounded-md border border-[var(--border)] bg-[linear-gradient(135deg,color-mix(in_srgb,var(--accent)_20%,transparent),transparent_40%),var(--surface-soft)] p-3">
+    <div class="flex gap-1.5">
+      <span class="h-2.5 w-2.5 rounded-full bg-[var(--accent)]"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-[var(--border)]"></span>
+      <span class="h-2.5 w-2.5 rounded-full bg-[var(--border)]"></span>
+    </div>
+    <p class="mt-8 truncate font-mono text-xs text-[var(--muted)]">/{project.slug}</p>
+  </div>
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <p class="eyebrow">{project.status}</p>
+      <h3 class="mt-2 text-xl font-semibold leading-tight">{project.title}</h3>
+    </div>
+    <span class="tag">{project.startDate}</span>
+  </div>
+  <p class="text-sm leading-6 text-[var(--muted)]">{project.summary}</p>
+  <div>
+    <p class="text-sm font-semibold">我的角色</p>
+    <p class="mt-1 text-sm text-[var(--muted)]">{project.role}</p>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    {project.techStack.map((tech) => <span class="tag">{tech}</span>)}
+  </div>
+  <div class="grid gap-2 text-sm text-[var(--muted)]">
+    {project.metrics.map((metric) => <p>· {metric}</p>)}
+  </div>
+  <div class="flex flex-wrap gap-3 pt-1">
+    {project.websiteUrl && (
+      <a class="text-link text-sm" href={project.websiteUrl}>
+        访问项目
+      </a>
+    )}
+    {project.githubUrl && (
+      <a class="text-link text-sm" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+        查看源码
+      </a>
+    )}
+  </div>
+</article>

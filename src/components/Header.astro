@@ -1,0 +1,99 @@
+---
+import { siteConfig } from "@/config/site";
+---
+
+<header class="sticky top-0 z-20 border-b border-[var(--border)] bg-[color-mix(in_srgb,var(--background)_82%,transparent)] backdrop-blur">
+  <nav class="container flex min-h-14 items-center justify-between gap-4" aria-label="主导航">
+    <a href="/" class="site-brand">{siteConfig.siteName}</a>
+    <div class="hidden items-center gap-2 md:flex">
+      {siteConfig.navigation.map((item) => (
+        <a class="rounded-md px-2 py-2 text-sm text-[var(--muted)] hover:text-[var(--text)] focus-visible:text-[var(--text)]" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+    </div>
+    <div class="theme-switcher" data-theme-switcher aria-label="主题设置">
+      <button class="theme-option" type="button" data-theme-choice="dark" aria-label="深色主题" title="深色">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M20.4 15.2A7.8 7.8 0 0 1 8.8 3.6 8.8 8.8 0 1 0 20.4 15.2Z"></path>
+        </svg>
+      </button>
+      <button class="theme-option" type="button" data-theme-choice="system" aria-label="跟随系统主题" title="跟随系统">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <rect x="5" y="4.5" width="14" height="10.5" rx="1.6"></rect>
+          <path d="M9 19.5h6"></path>
+          <path d="M12 15v4.5"></path>
+        </svg>
+      </button>
+      <button class="theme-option" type="button" data-theme-choice="light" aria-label="浅色主题" title="浅色">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="3.5"></circle>
+          <path d="M12 2.5v2"></path>
+          <path d="M12 19.5v2"></path>
+          <path d="m4.9 4.9 1.4 1.4"></path>
+          <path d="m17.7 17.7 1.4 1.4"></path>
+          <path d="M2.5 12h2"></path>
+          <path d="M19.5 12h2"></path>
+          <path d="m4.9 19.1 1.4-1.4"></path>
+          <path d="m17.7 6.3 1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div class="container flex gap-2 overflow-x-auto pb-3 md:hidden" aria-label="移动端导航">
+    {siteConfig.navigation.map((item) => (
+      <a class="shrink-0 rounded-md border border-[var(--border)] px-3 py-2 text-sm text-[var(--muted)]" href={item.href}>
+        {item.label}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  type ThemeChoice = "dark" | "system" | "light";
+
+  const switcher = document.querySelector("[data-theme-switcher]");
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-theme-choice]");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: light)");
+
+  function resolveTheme(choice: ThemeChoice) {
+    if (choice === "system") {
+      return systemTheme.matches ? "light" : "dark";
+    }
+
+    return choice;
+  }
+
+  function readChoice(): ThemeChoice {
+    const stored = localStorage.getItem("theme-choice");
+    return stored === "dark" || stored === "light" || stored === "system" ? stored : "system";
+  }
+
+  function applyChoice(choice: ThemeChoice) {
+    document.documentElement.dataset.theme = resolveTheme(choice);
+    document.documentElement.dataset.themeChoice = choice;
+    localStorage.setItem("theme-choice", choice);
+
+    buttons.forEach((button) => {
+      const active = button.dataset.themeChoice === choice;
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const choice = button.dataset.themeChoice as ThemeChoice;
+      applyChoice(choice);
+    });
+  });
+
+  systemTheme.addEventListener("change", () => {
+    if (readChoice() === "system") {
+      applyChoice("system");
+    }
+  });
+
+  if (switcher) {
+    applyChoice(readChoice());
+  }
+</script>

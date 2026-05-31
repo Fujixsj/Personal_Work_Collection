@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { getProjects } from "@/lib/content";
+
+const projects = getProjects();
+---
+
+<BaseLayout title="Projects" description="代表项目列表，展示项目简介、角色、技术栈、成果和相关链接。" pathname="/projects">
+  <Header />
+  <main class="page-intro">
+    <div class="container">
+      <p class="eyebrow">Projects</p>
+      <h1 class="mt-3 text-4xl font-semibold">项目展示</h1>
+      <p class="mt-4 max-w-2xl text-[var(--muted)]">优先展示能代表当前能力、真实上线或有明确结果的项目。占位内容请替换为真实经历。</p>
+      <div class="mt-10 grid gap-5 md:grid-cols-2">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "开始搭建个人作品集网站",
+    "subtitle": "Personal Work Collection",
+    "date": "2026-05-31",
+    "type": "项目",
+    "description": "确定静态优先、内容优先、长期可维护的方向，启动第一版首页、项目、时间线和联系方式开发。",
+    "links": [{ "label": "查看项目", "url": "/" }],
+    "tags": ["Portfolio", "Astro"],
+    "order": 1
+  },
+  {
+    "title": "整理真实项目与经历",
+    "subtitle": "内容准备",
+    "date": "2026-05-28",
+    "type": "学习",
+    "description": "梳理个人介绍、代表项目、时间线和简历入口，避免编造经历，优先用真实、保守、可持续更新的内容。",
+    "links": [],
+    "tags": ["Content"],
+    "order": 2
+  },
+  {
+    "title": "更多经历待补充",
+    "subtitle": "Timeline",
+    "date": "2025-12-01",
+    "type": "其他",
+    "description": "这里可以补充工作、项目、学习、开源、获奖或文章节点。时间线会自动按日期倒序展示。",
+    "links": [],
+    "tags": ["Draft"],
+    "order": 3
+  }
+]
